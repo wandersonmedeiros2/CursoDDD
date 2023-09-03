@@ -35,7 +35,7 @@ namespace DDDInPractice.Tests
         [Fact]
         public void Tow_instances_do_not_equals_if_contains_different_money_amounts()
         {
-            Money dollar = new Money(0, 0, 0, 1, 0, 0);
+            Money dollar = Money.Dollar;
             Money hundreadCents = new Money(100, 0, 0, 0, 0, 0);
 
             dollar.Should().NotBe(hundreadCents);
@@ -115,14 +115,13 @@ namespace DDDInPractice.Tests
             result.OneDollarCount.Should().Be(6);
             result.FiveDollarCount.Should().Be(5);
             result.TwentyDollarCount.Should().Be(4);
-
         }
 
         [Fact]
         public void Can_not_subtract_more_then_exists()
         {
-            Money money1 = new Money(0, 1, 0, 0, 0, 0);
-            Money money2 = new Money(1, 0, 0, 0, 0, 0);
+            Money money1 = Money.TenCent;
+            Money money2 = Money.Cent;
 
             Action action = () =>
             {
